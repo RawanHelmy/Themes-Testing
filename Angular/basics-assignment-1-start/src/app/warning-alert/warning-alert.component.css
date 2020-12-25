@@ -1,0 +1,11 @@
+label{
+    color:#491217;
+    font-weight: 700;
+}
+p{
+    color: #721c24;
+    background-color: #f8d7da;
+    border: #f5c6cb 1px solid;
+    border-radius: .25rem;
+    padding: .75rem 1.25rem;
+}

@@ -1,0 +1,13 @@
+<button class="btn btn-success" (click)="start()">Start</button>
+<br/>
+<p>{{count}}</p>
+<br/>
+<button class="btn btn-danger" (click)="stop()">Stop</button>
+<hr/>
+<app-odd *ngFor="let item of odd">
+    <p style="color: red;">{{item}}</p>
+</app-odd>
+<hr/>
+<app-even *ngFor="let item of even">
+    <p style="color: green;">{{item}}</p>
+</app-even>
