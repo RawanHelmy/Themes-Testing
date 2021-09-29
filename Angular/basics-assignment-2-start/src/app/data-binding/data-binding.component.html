@@ -1,6 +1,0 @@
-<div class="container">
-    <input class="form-control" type="text" [(ngModel)] = "userName" (input)="enableResetButton($event)">
-    <p>{{userName}}</p>
-    <hr/>
-    <button [disabled] = "!canResetUsername" class="btn btn-primary" (click) ="ResetUserName()">Reset Username</button>
-</div>
