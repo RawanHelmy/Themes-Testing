@@ -1,14 +1,14 @@
-import { Directive, OnInit, OnDestroy, ElementRef } from '@angular/core';
-import { ThemeService } from './theme.service';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { Theme } from './symbols';
+import { Directive, ElementRef, OnDestroy, OnInit } from "@angular/core";
+
+import { Subject } from "rxjs";
+import { Theme } from "./symbols";
+import { ThemeService } from "./theme.service";
+import { takeUntil } from "rxjs/operators";
 
 @Directive({
-  selector: '[theme]'
+  selector: "[theme]",
 })
 export class ThemeDirective implements OnInit, OnDestroy {
-
   private _destroy$ = new Subject();
 
   constructor(
@@ -28,14 +28,17 @@ export class ThemeDirective implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this._destroy$.next();
+    this._destroy$.next(null);
     this._destroy$.complete();
   }
 
   updateTheme(theme: Theme) {
     // project properties onto the element
     for (const key in theme.properties) {
-      this._elementRef.nativeElement.style.setProperty(key, theme.properties[key]);
+      this._elementRef.nativeElement.style.setProperty(
+        key,
+        theme.properties[key]
+      );
     }
 
     // remove old theme
@@ -46,5 +49,4 @@ export class ThemeDirective implements OnInit, OnDestroy {
     // alias element with theme name
     this._elementRef.nativeElement.classList.add(`${theme.name}-theme`);
   }
-
 }
