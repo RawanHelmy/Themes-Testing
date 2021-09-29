@@ -1,20 +1,22 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { ThemeModule, darkTheme, lightTheme } from "./theme";
 
-import { AppComponent } from './app.component';
-import { ThemeModule, lightTheme, darkTheme } from './theme';
-import { TestComponent } from './test/test.component';
-import { Test2Component } from './test2/test2.component';
+import { AppComponent } from "./app.component";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { Test2Component } from "./test2/test2.component";
+import { TestComponent } from "./test/test.component";
+import { TestModule } from "./test/test.module";
 
 @NgModule({
-  imports:      [
+  imports: [
     BrowserModule,
+    TestModule,
     ThemeModule.forRoot({
       themes: [lightTheme, darkTheme],
-      active: 'light'
-    })
+      active: "light",
+    }),
   ],
-  declarations: [ AppComponent, TestComponent, Test2Component ],
-  bootstrap:    [ AppComponent ]
+  declarations: [AppComponent, TestComponent, Test2Component],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
